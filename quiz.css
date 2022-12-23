@@ -1,0 +1,133 @@
+:root {
+  --text-color: black;
+  --primary-color: dodgerblue;
+  --neutral: white;
+  --font-size: 1.2rem;
+  --text-color2: rgba(0%, 0%, 0%, .2);
+  --gray: gray;
+}
+
+* {
+  box-sizing: border-box;
+  transition: all .2s linear;
+}
+
+body {
+  font-family: sans-serif;
+  background: url("./bg.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  font-size: var(--font-size);
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  margin: 0px;
+}
+
+main {
+  width: 90vw;
+  max-width: 500px;
+  background: var(--neutral);
+  display: flex;
+  flex-direction: column;
+  border-radius: .5rem;
+  padding: 1rem 1rem 2rem;
+  gap: .1rem;
+  overflow: hidden;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  color: var(--gray);
+  font-size: calc(var(--font-size)*.9);
+}
+
+.time-bar {
+  width: 100%;
+  background: var(--text-color2);
+  border-radius: 1rem;
+  position: relative;
+  overflow: hidden;
+  height: 10px;
+}
+
+.time-left {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0px;
+  top: 0px;
+  background: var(--primary-color);
+  border-radius: 1rem;
+  transition: all 1s linear;
+}
+
+.question {
+  margin: 1rem 0px;
+  animation: enter .3s ease-out;
+}
+
+.box {
+  padding: .5rem;
+  border: 1px solid var(--gray);
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem;
+  animation: enter .3s ease-out;
+  cursor: pointer;
+}
+
+.box:hover,
+.active {
+  background: var(--primary-color);
+  color: var(--neutral);
+  border: none;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.bottom-bar {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1rem;
+  align-items: center;
+}
+
+button {
+  padding: 10px;
+  border-radius: 10px;
+  color: var(--neutral);
+  background: var(--primary-color);
+  font-weight: 600;
+  border: none;
+  outline: none;
+  font-size: calc(var(--font-size)*1.1);
+  cursor: pointer;
+}
+
+button:hover {
+  transform: scale(.9);
+}
+
+.bottom-bar button[disabled] {
+  background: var(--text-color2);
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+@keyframes enter {
+  from {
+    transform: translateX(50%);
+    opacity: 0;
+  }
+}
